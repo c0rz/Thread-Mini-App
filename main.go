@@ -4,6 +4,7 @@ import (
 	"Blog/config"
 	"Blog/routes"
 	"database/sql"
+	"os"
 
 	"github.com/gin-gonic/gin"
 )
@@ -23,5 +24,5 @@ func main() {
 	gin.SetMode(gin.DebugMode)
 
 	routes := routes.Routes()
-	routes.Run(":3000")
+	routes.Run(":"+ os.Getenv("PORT"))
 }
